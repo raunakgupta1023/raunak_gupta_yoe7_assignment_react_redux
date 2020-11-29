@@ -4,6 +4,7 @@ import LaunchSites from "../LaunchSites/LaunchSites";
 import { connect } from "react-redux";
 import * as launchActions from "../../redux/actions/launchActions";
 import { bindActionCreators } from "redux";
+import './Dashboard.css'
 
 const heading = {
   fontWeight: 'bold',
