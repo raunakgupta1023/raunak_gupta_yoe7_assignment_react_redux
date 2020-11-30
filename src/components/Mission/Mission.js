@@ -36,7 +36,9 @@ const StyledDiv = styled.div`
     };`;
   
 function Mission({mission}) {
-    const success = mission.launch_success ? mission.launch_success.toString() : 'false';
+    const success = mission.launch_success !== null ? mission.launch_success.toString() : 'null';
+    const landSucess = mission.rocket.first_stage.cores[0].land_success !== null? mission.rocket.first_stage.cores[0].land_success.toString() : 'null';
+    console.log(landSucess);
     return (
         <StyledDiv>
             <img alt={mission.mission_name} style={imgClass} src={mission.links.mission_patch_small}/>
@@ -44,7 +46,7 @@ function Mission({mission}) {
             <div><span style={fontBold}>Rocket Name: </span><span>{mission.rocket.rocket_name}</span></div>
             <div><span style={fontBold}>Launch Year: </span><span>{mission.launch_year}</span></div>
             <div><span style={fontBold}>Successful Launch: </span><span>{success}</span></div>
-            <div><span style={fontBold}>Landing Site: </span><span>{mission.launch_site.site_name}</span></div>
+            <div><span style={fontBold}>Successful Landing: </span><span>{landSucess}</span></div>
         </StyledDiv>
     )
 }

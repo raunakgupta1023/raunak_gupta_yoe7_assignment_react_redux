@@ -22,6 +22,7 @@ function FilterList({query}) {
         let updatedFilter = [];
         allFilters.set(filter.name, filter.value);
         allFilters.forEach((value, key ) => {
+            if(value !== 'false')
             updatedFilter.push({name: key, value: value})
         });
         dispatch(addFilterToLaunches(updatedFilter));
